@@ -2,6 +2,7 @@
 #+AUTHOR: H.Yamada
 
 * Description:
+  Jump to directory, considering history.
 
 * Install:
   Write in ~/.bashrc (or other your shell config file)
