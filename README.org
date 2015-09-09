@@ -1,18 +1,18 @@
 #+TITLE: ymd_cd
 #+AUTHOR: H.Yamada
 
-* Description:
+* Description
   Jump to directory, considering history.
 
-* Install:
+* Install
   Write in ~/.bashrc (or other your shell config file)
   #+BEGIN_SRC sh
-if [ -e /path/to/ymd_cd.sh ]; then
+if [ -f /path/to/ymd_cd.sh ]; then
     source /path/to/ymd_cd.sh
 fi
     #+END_SRC
 
-* Usage:
+* Usage
   #+BEGIN_SRC sh
 y foo
   #+END_SRC
