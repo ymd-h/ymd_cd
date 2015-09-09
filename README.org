@@ -1,0 +1,41 @@
+#+TITLE: ymd_cd
+#+AUTHOR: H.Yamada
+
+* Description:
+
+* Install:
+  Write in ~/.bashrc (or other your shell config file)
+  #+BEGIN_SRC sh
+if [ -e /path/to/ymd_cd.sh ]; then
+    source /path/to/ymd_cd.sh
+fi
+    #+END_SRC
+
+* Usage:
+  #+BEGIN_SRC sh
+y foo
+  #+END_SRC
+  -> If 'cd foo' fail, then the command search (partially-)matched directory from database
+
+  #+BEGIN_SRC sh
+y =
+  #+END_SRC
+  -> Show database, which is composed of "integer,directory_name"
+
+  #+BEGIN_SRC sh
+y -d bar
+  #+END_SRC
+  -> Delete "bar" from database. "bar" should be full path.
+
+  #+BEGIN_SRC sh
+y -c num
+  #+END_SRC
+  -> Clear database, except directories which still exist and it's arrival count are greater than "num".
+  When no num is specified, num is assumed as 0. (Only non exist directories are deleted.)
+
+* Database
+  Shell variable YMD_CD_DATABASE, whose default value is "$HOME/.ymd_cd.db"
+  It is sort before using.
+
+* Optional
+  Periodical manual backup of database is highly recommended
