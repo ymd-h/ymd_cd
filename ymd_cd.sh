@@ -55,6 +55,7 @@ function y()
 	"=" ) # show stack
 	    local -a YMD_CD_STACK
 	    local i=0
+	    local line
 	    while read -r line
 	    do
 		YMD_CD_STACK+=("${line}")
@@ -69,6 +70,7 @@ function y()
 		i=$(( $i + 1 ))
 	    done < "${YMD_CD_DATABASE}"
 	    local str=""
+	    local e
 	    for e in "${YMD_CD_STACK[@]}"
 	    do
 	    	str+="${e}\n"
@@ -83,6 +85,7 @@ function y()
 	    fi
 	    local found=0
 	    local str=""
+	    local line
 	    while read -r line
 	    do
 		if [ -z ${line} ]; then
@@ -105,6 +108,7 @@ function y()
 		fi
 	    fi
 	    local str=""
+	    local line
 	    while read -r line
 	    do
 		if [ -z ${line} ]; then
@@ -123,6 +127,7 @@ function y()
 		## success cd, update data base
 		local found=0
 		local str=""
+		local line
 		while read -r line
 		do
 		    if [ -z ${line} ]; then
@@ -143,6 +148,7 @@ function y()
 		## sort data base
 		local -a YMD_CD_STACK
 		local i=0
+		local line
 		while read -r line
 		do
 		    YMD_CD_STACK+=("${line}")
@@ -160,6 +166,7 @@ function y()
 		## search
 		local str=""
 		local jumped=0
+		local e
 		for e in "${YMD_CD_STACK[@]}"
 		do
 		    if [ ${jumped} -eq 0 ]; then
