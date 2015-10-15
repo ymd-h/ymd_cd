@@ -158,7 +158,7 @@ function y()
 		done < "${YMD_CD_DATABASE}"
 
 		## search
-		str=""
+		local str=""
 		local jumped=0
 		for e in "${YMD_CD_STACK[@]}"
 		do
