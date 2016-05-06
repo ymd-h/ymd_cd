@@ -88,7 +88,7 @@ function y()
 	    local line
 	    while read -r line
 	    do
-		if [ -z ${line} ]; then
+		if [ -z "${line}" ]; then
 		    break
 		fi
 		if [ ${found} -eq 0 ] && [ "${line#*\,}" = "$2"  ]; then
@@ -111,7 +111,7 @@ function y()
 	    local line
 	    while read -r line
 	    do
-		if [ -z ${line} ]; then
+		if [ -z "${line}" ]; then
 		    break
 		fi
 		if [ -d "${line#*\,}" ] && [ ${line%%\,*} -gt ${threshold}  ]; then
@@ -130,7 +130,7 @@ function y()
 		local line
 		while read -r line
 		do
-		    if [ -z ${line} ]; then
+		    if [ -z "${line}" ]; then
 			break
 		    fi
 		    if [ ${found} -eq 0 ] && [ "${line#*\,}" = "${PWD}"  ]; then
