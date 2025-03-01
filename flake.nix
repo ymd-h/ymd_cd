@@ -12,15 +12,20 @@
       let
         pkgs = import nixpkgs { inherit system; };
       in rec {
-        packages.default = pkgs.stdenv.mkDerivation {
+        packages.default = pkgs.writeTextFile {
           name = "ymd_cd";
-          src = ./.;
-          phases = [ "unpackPhase" "installPhase" ];
-          installPhase = ''
-          mkdir -p $out
-          cp $src/ymd_cd.sh $out
+          text = builtins.readFile ./ymd_cd.sh;
+          destination = "/ymd_cd.sh";
+        };
+
+        devShells.default = pkgs.mkShell {
+          buildInputs = [
+            pkgs.bashInteractive
+          ];
+
+          shellHook = ''
+            . ${packages.default}/ymd_cd.sh
           '';
         };
-        devShells.default = import ./shell.nix { inherit pkgs; };
       });
 }
